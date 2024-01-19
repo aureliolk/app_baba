@@ -20,6 +20,7 @@ export const theme = {
   extend: {
     fontFamily: {
       sans: ["var(--font-sans)", ...fontFamily.sans],
+      Audiowide: ["var(--font-audiowide)", ...fontFamily.sans]
     },
     colors: {
       border: "hsl(var(--border))",
@@ -70,10 +71,15 @@ export const theme = {
         from: { height: "var(--radix-accordion-content-height)" },
         to: { height: "0" },
       },
+      "slideIn":{
+        from: {  transform: "translateX(-100%)"},
+        to:{transform: "translateX(0)"}
+      },
     },
     animation: {
       "accordion-down": "accordion-down 0.2s ease-out",
       "accordion-up": "accordion-up 0.2s ease-out",
+      "slideIn": "slideIn 1s ease-out"
     },
   },
 }

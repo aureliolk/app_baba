@@ -1,10 +1,8 @@
 import { Metadata } from "next"
-import Image from "next/image"
 import Link from "next/link"
-
-import { cn } from "@/lib/utils"
-import { buttonVariants } from "@/components/ui/button"
 import { UserRegisterForm } from "@/app/register/components/user-register-form"
+
+
 
 export const metadata: Metadata = {
   title: "Authentication",
@@ -14,22 +12,15 @@ export const metadata: Metadata = {
 export default function AuthenticationPage() {
   return (
     <>
-      <div className="container relative  flex-col items-center justify-center ">
-        <div className="lg:p-8">
-          <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
-            <div className="flex flex-col space-y-2 text-center">
-              <h1 className="text-2xl font-semibold tracking-tight">
-                Baba dos Amigo
-              </h1>
-              <p className="text-sm text-muted-foreground">
-                Criar conta
-              </p>
-            </div>
-            <UserRegisterForm />
-            <p className="px-8 text-center text-sm text-muted-foreground">
-              <Link href={"#"} >Doe para o Baba dos Amigos 💚</Link>
-            </p>
-          </div>
+      <div className="container flex justify-center items-center mt-4">
+        <div className="flex flex-col w-full md:w-1/2 space-y-4">
+        <p className="font-bold text-lg text-white font-Audiowide text-center" >
+          Faça seu Cadastro Jogador!
+        </p>
+        <UserRegisterForm />
+        <p className="px-8 text-center text-sm text-muted-foreground font-Audiowide">
+          <Link href={"#"} >Doe para o Baba dos Amigos 💚</Link>
+        </p>
         </div>
       </div>
     </>

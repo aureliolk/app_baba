@@ -1,8 +1,15 @@
 import type { Metadata } from 'next'
-import { Inter as FontSans } from 'next/font/google'
+import { Inter as FontSans, Audiowide } from 'next/font/google'
 import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import "@/styles/globals.css"
+
+
+export const audiowide = Audiowide({
+  weight:["400"],
+  subsets:['latin-ext'],
+  variable:"--font-audiowide"
+})
 
 export const fontSans = FontSans({
   subsets: ["latin"],
@@ -15,6 +22,7 @@ export const metadata: Metadata = {
 }
 
 import { cn } from "@/lib/utils"
+import { SiteHeader } from '@/components/site-header'
 
 export default function RootLayout({
   children,
@@ -24,8 +32,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={cn(
-        "min-h-screen bg-background font-sans antialiased",
-        fontSans.variable
+        "min-h-screen bg-[#0C0A09] font-sans antialiased",
+        fontSans.variable,
+        audiowide.variable
       )}>
         <ThemeProvider
           attribute="class"
@@ -33,6 +42,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <SiteHeader />
           {children}
           <Toaster />
         </ThemeProvider>

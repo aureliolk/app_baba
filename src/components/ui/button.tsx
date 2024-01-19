@@ -44,7 +44,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : "button"
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={"font-Audiowide bg-gradient-to-r from-[#51FF45] via-[#2DC826] to-[#1F851F]"+cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       />
