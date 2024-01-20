@@ -1,11 +1,23 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import { CreateUserFormData } from "@/app/register/components/user-register-form";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { string } from "zod";
 
 
+
+interface CreateUserFormData {
+    avatar: string
+    name: string;
+    age: string;
+    lastName: string;
+    tel: string;
+    userName: string;
+    phrase: string;
+    position: string;
+    score: string
+}
 
 
 const ListPlayer = () => {
@@ -75,7 +87,7 @@ const ListPlayer = () => {
                                             <p className="bg-clip-text text-transparent bg-gradient-to-r from-[#51FF45] via-[#2DC826] to-[#1F851F]">Posição:</p>
                                             <p className="text-white">{legendPostion(item.position)}</p>
                                         </div>
-                                        {item.score && <div className="flex flex-col mb-2">
+                                        {item?.score && <div className="flex flex-col mb-2">
                                             <p className="bg-clip-text text-transparent bg-gradient-to-r from-[#51FF45] via-[#2DC826] to-[#1F851F]">Score:</p>
                                             84 pontos
                                         </div>}

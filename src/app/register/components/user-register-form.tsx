@@ -42,7 +42,7 @@ const FormSchema = z.object({
   position: z.string().min(2, {
     message: "Informe sua posição teimoso!"
   }),
-  score: z.string()
+  // score: z.string()
 })
 
 export type CreateUserFormData = z.infer<typeof FormSchema>
