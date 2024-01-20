@@ -33,11 +33,11 @@ const ListPlayer = () => {
       console.log(users.length)
 
     return (
-        <div className="space-y-4 text-center">
+        <div className="space-y-4 text-center w-full">
             <div className="font-bold text-lg font-Audiowide">
                 ESCALAÇÃO
             </div>
-            <div className="grid grid-cols-3 text-sm justify-items-center gap-y-2 ">
+            <div className="grid grid-cols-3 text-sm justify-items-center md:flex gap-2">
 
                 {users.length > 0 && (
                     <>
@@ -45,7 +45,7 @@ const ListPlayer = () => {
                             return (
                                 <Popover key={item.tel}>
                                     <PopoverTrigger>
-                                        <div className='flex justify-center space-y-2 items-center flex-col w-fit border border-muted p-2 rounded'>
+                                        <div className='flex justify-center space-y-2 items-center flex-col w-fit border border-muted p-2 rounded hover:bg-[#000]/90'>
                                             <Avatar className="w-[75px] h-[75px]" >
                                                 <AvatarImage  src={item.avatar as any} />
                                                 <AvatarFallback>{`${item.name.charAt(0)}${item.lastName.charAt(0)}`}</AvatarFallback>
@@ -54,7 +54,7 @@ const ListPlayer = () => {
 
                                         </div>
                                     </PopoverTrigger>
-                                    <PopoverContent className="w-[200px] font-mono text-xs bg-zinc-900/90 border-muted-foreground backdrop-blur-0" >
+                                    <PopoverContent className="w-[200px] font-mono text-xs bg-[#000]/90 border-muted-foreground backdrop-blur-0" >
                                         <div className="flex flex-col mb-2">
                                             <p className="nd bg-clip-text text-transparent bg-gradient-to-r from-[#51FF45] via-[#2DC826] to-[#1F851F] ">Nome:</p>
                                             <p className="text-white">{item.name} {item.lastName}</p>

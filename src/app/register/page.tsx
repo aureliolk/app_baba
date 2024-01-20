@@ -18,9 +18,6 @@ export default function AuthenticationPage() {
           Faça seu Cadastro Jogador!
         </p>
         <UserRegisterForm />
-        <p className="px-8 text-center text-sm text-muted-foreground font-Audiowide">
-          <Link href={"#"} >Doe para o Baba dos Amigos 💚</Link>
-        </p>
         </div>
       </div>
     </>
