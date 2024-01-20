@@ -37,6 +37,7 @@ export async function POST(request: NextRequest) {
   console.log(hashImg)
   console.log(files[0] == null)
   console.log(!files[0])
+  
   const data = {
     name: formData.get("name") as string,
     lastName: formData.get("lastName") as string,

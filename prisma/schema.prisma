@@ -20,4 +20,6 @@ model User {
   position String?
   avatar   String?
   phrase   String?
+  age      String?
+  score    String?
 }
