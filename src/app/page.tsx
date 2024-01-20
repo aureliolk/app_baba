@@ -1,15 +1,11 @@
 
-import ListPlayer from '@/components/list-player'
+import ListPlayer from '@/components/listPlayer'
 
 export default function Home() {
   return (
     <main>
-      <div className="whitespace-nowrap overflow-hidden">
-        <span className="animate-slideIn">app em desenvolvimento by: Aurelio https://acos-services.tech</span>
-      </div>
-
       <div className='container flex flex-col space-y-8 my-8'>
-        <h1 className='text-center text-3xl font-sans font-bold w-full md:w-1/2 m-auto'>Faça Parte do Melhor Baba de Praia de Ilhéus</h1>
+        <h1 className='text-center text-3xl font-Audiowide font-extrabold w-full md:w-1/2 m-auto'>Faça Parte do <span className='bg-clip-text text-transparent bg-gradient-to-r from-[#51FF45] via-[#2DC826] to-[#1F851F]'>Melhor Baba</span> de Praia de <span className='bg-clip-text text-transparent bg-gradient-to-r from-[#51FF45] via-[#2DC826] to-[#1F851F]'>ILHÉUS</span>/BA.</h1>
         <ListPlayer />
       </div>
     </main>

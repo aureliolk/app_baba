@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { toast } from "@/components/ui/use-toast"
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Loader2 } from 'lucide-react';
+import { Camera, Loader2 } from 'lucide-react';
 import { Label } from '@/components/ui/label';
 import {  phoneMaskGpt } from '@/lib/inputs';
 
@@ -101,9 +101,12 @@ export function UserRegisterForm() {
     <form onSubmit={handleSubmit(createUser)} className="space-y-4 ">
       {avatarPreview ?
         <div className='flex justify-center'>
-          <Avatar>
+          <Avatar className='relative'>
             <AvatarImage src={avatarPreview} />
             <AvatarFallback>CN</AvatarFallback>
+            <div onClick={()=>setAvatarPreview("")} className='absolute inset-0 flex items-center justify-center cursor-pointer'>
+              <Camera />
+            </div>
           </Avatar>
         </div>
         :

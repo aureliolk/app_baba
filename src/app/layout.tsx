@@ -6,9 +6,9 @@ import "@/styles/globals.css"
 
 
 export const audiowide = Audiowide({
-  weight:["400"],
-  subsets:['latin-ext'],
-  variable:"--font-audiowide"
+  weight: ["400"],
+  subsets: ['latin-ext'],
+  variable: "--font-audiowide"
 })
 
 export const fontSans = FontSans({
@@ -23,6 +23,7 @@ export const metadata: Metadata = {
 
 import { cn } from "@/lib/utils"
 import { SiteHeader } from '@/components/site-header'
+import { SiteFooter } from '@/components/site-footer'
 
 export default function RootLayout({
   children,
@@ -42,8 +43,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SiteHeader />
-          {children}
+          <div vaul-drawer-wrapper="">
+            <div className="relative flex min-h-screen flex-col bg-background">
+              <SiteHeader />
+              <main className="flex-1">{children}</main>
+              <SiteFooter />
+            </div>
+          </div>
           <Toaster />
         </ThemeProvider>
       </body>
