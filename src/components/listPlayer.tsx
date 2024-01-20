@@ -1,24 +1,31 @@
+import { useEffect, useState } from "react";
 import { CreateUserFormData } from "@/app/register/components/user-register-form";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 
 
-async function getPlayer() {
-    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/user`)
 
-    if (!res.ok) {
-        throw new Error('Failed to fetch data')
-    }
-
-    return res.json()
-}
 
 const ListPlayer = async () => {
-    const users = await getPlayer()
+    const [users, setUsers] = useState([]);
 
-    if(!users){
-        return
-    }
+    useEffect(() => {
+        const fetchUsers = async () => {
+          try {
+            const res = await fetch(`${process.env.NEXTAUTH_URL}/api/user`);
+            if (res.ok) {
+              const data = await res.json();
+              setUsers(data);
+            } else {
+              console.log("Failed to fetch data:", res.status);
+            }
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          }
+        };
+    
+        fetchUsers();
+      }, []);
 
     return (
         <div className="space-y-4 text-center">
