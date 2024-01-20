@@ -4,7 +4,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 
 
 async function getPlayer() {
-    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/user`)
+    const res = await fetch(`https://babadosamigo.acos-services.tech/api/user`)
 
     if (!res.ok) {
         throw new Error('Failed to fetch data')

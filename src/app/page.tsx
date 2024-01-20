@@ -1,4 +1,3 @@
-
 import ListPlayer from '@/components/listPlayer'
 
 export default function Home() {
