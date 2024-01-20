@@ -44,6 +44,7 @@ export async function POST(request: NextRequest) {
     position: formData.get("position") as string,
     phrase: formData.get("phrase") as string,
     userName: formData.get("userName") as string,
+    age: formData.get("age") as string
   }
 
 
@@ -62,7 +63,8 @@ export async function POST(request: NextRequest) {
           lastName: data.lastName,
           position: data.position,
           userName: data.userName,
-          phrase: data.phrase
+          phrase: data.phrase,
+          age: data.age
         }
       })
       console.log(createUser);
@@ -97,6 +99,7 @@ export async function POST(request: NextRequest) {
               position: data.position as string,
               userName: data.userName as string,
               phrase: data.phrase as string,
+              age: data.age,
               avatar: `${endPoint}/${Bucket}/public/${hashImg}-${files[0].name}`
   
             }

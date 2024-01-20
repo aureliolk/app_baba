@@ -59,26 +59,26 @@ const ListPlayer = () => {
                                             <p className="nd bg-clip-text text-transparent bg-gradient-to-r from-[#51FF45] via-[#2DC826] to-[#1F851F] ">Nome:</p>
                                             <p className="text-white">{item.name} {item.lastName}</p>
                                         </div>
-                                        <div className="flex flex-col mb-2">
+                                        {item.userName && <div className="flex flex-col mb-2">
                                             <p className="bg-clip-text text-transparent bg-gradient-to-r from-[#51FF45] via-[#2DC826] to-[#1F851F]">Apelido:</p>
                                             <p className="text-white">{item.userName}</p>
-                                        </div>
-                                        <div className="flex flex-col mb-2">
+                                        </div>}
+                                        {item.phrase && <div className="flex flex-col mb-2">
                                             <p className="bg-clip-text text-transparent bg-gradient-to-r from-[#51FF45] via-[#2DC826] to-[#1F851F]">Frase:</p>
                                             <p className="text-white">{item.phrase}</p>
-                                        </div>
-                                        <div className="flex flex-col mb-2">
+                                        </div>}
+                                        {item.age && <div className="flex flex-col mb-2">
                                             <p className="bg-clip-text text-transparent bg-gradient-to-r from-[#51FF45] via-[#2DC826] to-[#1F851F]">Idade:</p>
-                                            {/* <p className="text-white">{item.userName}</p> */} 34
-                                        </div>
+                                            <p className="text-white">{item.age}</p>
+                                        </div>}
                                         <div className="flex flex-col mb-2">
                                             <p className="bg-clip-text text-transparent bg-gradient-to-r from-[#51FF45] via-[#2DC826] to-[#1F851F]">Posição:</p>
                                             <p className="text-white">{legendPostion(item.position)}</p>
                                         </div>
-                                        <div className="flex flex-col mb-2">
+                                        {item.score && <div className="flex flex-col mb-2">
                                             <p className="bg-clip-text text-transparent bg-gradient-to-r from-[#51FF45] via-[#2DC826] to-[#1F851F]">Score:</p>
                                             84 pontos
-                                        </div>
+                                        </div>}
                                     </PopoverContent>
                                 </Popover>
 

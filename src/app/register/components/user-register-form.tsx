@@ -28,6 +28,9 @@ const FormSchema = z.object({
   name: z.string().min(2, {
     message: "Informe seu Nome",
   }),
+  age: z.string().min(1,{
+    message:"Insira sua Idade Jogador"
+  }),
   lastName: z.string(),
   tel: z
     .string()
@@ -38,7 +41,8 @@ const FormSchema = z.object({
   phrase: z.string(),
   position: z.string().min(2, {
     message: "Informe sua posição teimoso!"
-  })
+  }),
+  score: z.string()
 })
 
 export type CreateUserFormData = z.infer<typeof FormSchema>
@@ -62,6 +66,7 @@ export function UserRegisterForm() {
     formData.append('position', data.position)
     formData.append('phrase', data.phrase)
     formData.append('userName', data.userName)
+    formData.append('age', data.age)
 
     const res = await fetch("/api/user", {
       method: "POST",
@@ -145,8 +150,12 @@ export function UserRegisterForm() {
               {errors.lastName && <span className="text-xs text-red-500 font-light">{errors.lastName.message}</span>}
             </div>
           </div>
+          <div className='flex justify-between gap-2'>
           <Input className="placeholder:text-[12px]" placeholder="Apelido" {...register("userName")} />
+          <Input className="placeholder:text-[12px] w-1/4 " placeholder="Idade" {...register("age")} />
+          </div>
           {errors.userName && <span className="text-xs text-red-500 font-light">{errors.userName.message}</span>}
+          {errors.age && <span className="text-xs text-red-500 font-light">{errors.age.message}</span>}
           <Input className="placeholder:text-[12px]" placeholder="Frase que te Define" {...register("phrase")} />
           {errors.phrase && <span className="text-xs text-red-500 font-light">{errors.phrase.message}</span>}
           <Input className="placeholder:text-[12px]" placeholder="WhatsApp*" type='tel' {...register("tel")} maxLength={16} onChange={phoneMaskGpt} />
@@ -161,6 +170,7 @@ export function UserRegisterForm() {
               <option value="l_esq">Lateral Esquerdo</option>
               <option value="meia">Meia</option>
               <option value="atacante">Atacante</option>
+              <option value="juiz">Arbitro</option>
             </select>
             {errors.position && <span className="text-xs text-red-500 font-light">{errors.position.message}</span>}
           </div>
