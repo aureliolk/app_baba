@@ -7,7 +7,7 @@ import { string } from "zod";
 
 
 
-interface CreateUserFormData {
+export interface UserFormData {
     avatar: string
     name: string;
     age: string;
@@ -49,11 +49,11 @@ const ListPlayer = () => {
             <div className="font-bold text-lg font-Audiowide">
                 ESCALAÇÃO
             </div>
-            <div className="grid grid-cols-3 text-sm justify-items-center md:flex gap-2">
+            <div className="grid grid-cols-3 text-sm justify-items-center md:flex md:justify-center gap-2">
 
                 {users.length > 0 && (
                     <>
-                        {users.map((item: CreateUserFormData) => {
+                        {users.map((item: UserFormData) => {
                             return (
                                 <Popover key={item.tel}>
                                     <PopoverTrigger>
@@ -105,7 +105,7 @@ const ListPlayer = () => {
 
 export default ListPlayer;
 
-const legendPostion = (postion: string)=>{
+export const legendPostion = (postion: string)=>{
     if (postion === "zag") {
         return "Zagueiro"
     }else if(postion === "vol"){
@@ -114,5 +114,7 @@ const legendPostion = (postion: string)=>{
         return "Lateral Direito"
     }else if(postion === "l_esq"){
         return "Lateral Esquerdo"
+    }else if(postion === "juiz"){
+        return "Arbitro"
     }else return postion
 }
