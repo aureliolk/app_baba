@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 export function MobileNav() {
   const [open, setOpen] = React.useState(false)
@@ -66,8 +66,12 @@ export function MobileNav() {
         </MobileLink>
         <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
           <ul className="font-mono text-sm flex flex-col gap-4">
-            <Link href={"/"}>Marcar Baba</Link>
-            <Link href={"/profile"}>Editar Perfil</Link>
+            <SheetClose asChild>
+              <Link href={"/"}>Marcar Baba</Link>
+            </SheetClose>
+            <SheetClose asChild>
+              <Link href={"/profile"}>Editar Perfil</Link>
+            </SheetClose>
           </ul>
         </ScrollArea>
       </SheetContent>

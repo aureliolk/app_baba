@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { redirect } from 'next/navigation'
 import * as z from "zod"
 
 import { Button } from "@/components/ui/button"
