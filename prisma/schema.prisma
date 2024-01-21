@@ -22,4 +22,5 @@ model User {
   phrase   String?
   age      String?
   score    String?
+  update   Boolean @default(false)
 }

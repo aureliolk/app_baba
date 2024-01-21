@@ -17,6 +17,7 @@ export interface UserFormData {
     phrase: string;
     position: string;
     score: string
+    update: boolean
 }
 
 

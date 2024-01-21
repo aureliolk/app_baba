@@ -60,7 +60,7 @@ const CheckUser = () => {
                         "linkPreview": true
                     },
                     "textMessage": {
-                        "text": `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/profile/?id=${dataRes[0].id}`
+                        "text": `Clique no link abaixo para editar seu Perfil jogador! \n ${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/profile/?id=${dataRes[0].id}`
                     }
                 })
             })

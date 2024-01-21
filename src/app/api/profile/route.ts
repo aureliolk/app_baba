@@ -39,15 +39,11 @@ export async function GET(request: NextRequest) {
     }
 
     if(tel){
-
-
         const user = await prisma.user.findMany({
             where:{
                 tel:tel
             }
         })  
-
-        console.log(user.length === 0)
 
         if(user.length === 0){
             return NextResponse.json({
@@ -55,6 +51,15 @@ export async function GET(request: NextRequest) {
                 msg: "Perfil não encontrado"
             })
         }
+
+        const updateTrue = await prisma.user.update({
+            where:{
+                id: user[0].id
+            },
+            data:{
+                update: true
+            }
+        })
 
         return NextResponse.json(user)
        
@@ -97,7 +102,8 @@ export async function PUT(request: NextRequest) {
                 position: data.position,
                 userName: data.userName,
                 phrase: data.phrase,
-                age: data.age
+                age: data.age,
+                update: false
             }
         })
         console.log(createUser);
@@ -136,8 +142,8 @@ export async function PUT(request: NextRequest) {
                         userName: data.userName as string,
                         phrase: data.phrase as string,
                         age: data.age,
-                        avatar: `${endPoint}/${Bucket}/public/${hashImg}-${files[0].name}`
-
+                        avatar: `${endPoint}/${Bucket}/public/${hashImg}-${files[0].name}`,
+                        update: false
                     }
                 })
                 console.log(createUser);

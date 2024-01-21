@@ -86,7 +86,6 @@ const UpdateUser = ({ id }: UpdateUserProps) => {
     }, []);
 
     const updateUser = async (data: ProfileUserData) => {
-        console.log(data.tel.length)
         setIsLoading(true)
         const formData = new FormData()
         formData.append('name', data.name);
@@ -121,6 +120,14 @@ const UpdateUser = ({ id }: UpdateUserProps) => {
             console.log(`Esse arquivo teve erro ${res.status}`)
             return setIsLoading(false)
         }
+    }
+
+    if(!users[0]?.update){
+        return (
+            <div className="h-36 w-full flex justify-center items-center">
+                <h1 className="font-bold text-lg font-Audiowide">Você não pode alterar esse perfil</h1>
+            </div>
+        )
     }
 
     return (
